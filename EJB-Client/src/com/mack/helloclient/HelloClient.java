@@ -13,9 +13,10 @@ import java.util.Properties;
 public class HelloClient {
    public void runTest() throws Exception { 
       Properties props = new Properties();
+      
       props.load(new java.io.FileInputStream("jndi.properties"));
-
       InitialContext ctx = new InitialContext(props);
+      
       SimpleBean bean = (SimpleBean) ctx.lookup("ejb/Hello");
       String result = bean.sayHello("Bom dia!");
       System.out.println(result);
